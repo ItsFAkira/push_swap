@@ -24,6 +24,7 @@ OBJ = $(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC))
 # Colors
 GREEN = \033[0;32m
 BLUE  = \033[0;34m
+MAGENTA = \033[0;35m
 RESET = \033[0m
 
 # ---------------- RULES ---------------- #
@@ -68,9 +69,8 @@ re: fclean all
 NAME_TEST = test
 
 # Rule to compile and run the test program from main.c
-test: $(OBJ) $(LIBFT)
+test: $(NAME) $(LIBFT)
 	@echo "$(MAGENTA)[TEST] Generating test!  ♪♪ ヽ(ˇ∀ˇ )ゞ $(RESET)"
-	@$(CC) $(CFLAGS) main.c $(NAME) -I$(INC_DIR) -I$(LIBFT_INC) -g -o $(NAME_TEST)
-	@./$(NAME_TEST)
+	@$(CC) $(CFLAGS) $(SRC_DIR)/main.c $(NAME) $(LIBFT) -I$(INC_DIR) -I$(LIBFT_INC) -g -o $(NAME_TEST)
 
 .PHONY: all clean fclean re test

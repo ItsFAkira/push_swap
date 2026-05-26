@@ -1,22 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antonfe2 <antonfe2@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/25 14:53:45 by antonfe2          #+#    #+#             */
-/*   Updated: 2026/05/26 20:44:24 by antonfe2         ###   ########.fr       */
+/*   Created: 2026/05/26 16:17:37 by antonfe2          #+#    #+#             */
+/*   Updated: 2026/05/26 20:44:15 by antonfe2         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "push_swap.h"
 
-# include "libft.h" //Includes all the functions of libft
+int	main(int argc, char **argv)
+{
+	int	*arr;
 
-int	*argv_to_int(int argc, char **argv);
-int	check_int(char **argv, int i, int j);
-int	is_duplicated(int *arr);
-
-#endif
+	arr = argv_to_int(argc, argv);
+	if (!arr)
+		return (0);
+	if (is_duplicated(arr) != 0)
+	{
+		free(arr);
+		return (0);
+	}
+}
